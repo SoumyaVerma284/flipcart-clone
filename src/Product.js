@@ -8,6 +8,9 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 
 
@@ -32,21 +35,47 @@ function Product(){
            <img src={data.thumbnail} alt="" height={250} />
           </Grid2>
           <Grid2 size={{ xs: 6, md: 8 }}>
-           <b>Title</b>={data.title}<br></br><br></br>
-           <b>Description</b>={data.description}<br></br><br></br>
-           <b>Brand</b>={data.brand}<br></br><br></br>
-           <b>Price</b>=${data.price}<br></br><br></br>
-           <b>Return Policy</b>={data.returnPolicy}<br></br><br></br>
+           <b>Title</b>:{data.title}<br></br><br></br>
+           <b>Description</b>:{data.description}<br></br><br></br>
+           <b>Brand</b>:{data.brand}<br></br><br></br>
+           <b>Price</b>:${data.price}<br></br><br></br>
+           <b>Return Policy</b>:{data.returnPolicy}<br></br><br></br>
            <Button variant="contained">Buy Now</Button>
            <Button variant="contained">Add to Cart</Button>
           </Grid2>
           <Grid2 size={{xs:12,md:6}}>
-          <b>Reviews</b> <br></br> 
+          <b>Reviews</b> <br></br>
           <Stack spacing={1}>
            <Rating name="size-medium" value={parseInt(data.rating)}  />
            </Stack>
           <b>Rating</b>={data.rating} <br></br><br></br>
-        
+          {
+            (data.reviews && data.reviews.length>0)?
+            data.reviews.map((val)=>{
+              
+               return <Grid2 item size={ {xs:12, md: 3} } >
+                    <Card sx={{ minWidth: 275 ,backgroundColor:"pink"}}>
+                        <CardContent>
+                            <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
+                            {val.rating}
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                            
+                            </Typography>
+                            <Typography sx={{ color: 'text.secondary', mb: 1.5 }}> {val.comment}</Typography>
+                            <Typography variant="body2">
+                             {val.reviewerName}<br></br>
+                             {val.reviewerEmail}<br></br>
+                            <br />
+                            </Typography>
+                        </CardContent>
+                        <CardActions>   
+                        </CardActions>
+                    </Card>
+                </Grid2>
+            }):"Loading..."
+          }
+ 
           </Grid2>
        </Grid2>
        </Container>
