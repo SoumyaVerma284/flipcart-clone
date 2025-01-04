@@ -43,9 +43,9 @@ function Product(){
           <Grid2 size={{xs:12,md:6}}>
           <b>Reviews</b> <br></br> 
           <Stack spacing={1}>
-           <Rating name="size-medium" defaultValue={data.rating} />
+           <Rating name="size-medium" value={parseInt(data.rating)}  />
            </Stack>
-          <b>Rating</b>={data.rating}<br></br><br></br>
+          <b>Rating</b>={data.rating} <br></br><br></br>
         
           </Grid2>
        </Grid2>
