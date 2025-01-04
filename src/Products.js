@@ -77,7 +77,7 @@ export default function Products() {
           </IconButton>
         }
         
-        title={val.title} 
+      title={val.title} 
         
       />
       
