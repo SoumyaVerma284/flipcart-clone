@@ -16,7 +16,7 @@ import Getpost from './Getpost';
 import BasicTable from './BasicTable';
 import Product from './Product';
 import RecipeReviewCard from './RecipeReviewCard';
-import Dummy from './Dummy';
+import Products from './Products';
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
       <Route path='BasicTable' element={<BasicTable/>}/>
       <Route path='Product/:id' element={<Product/>}/>
       <Route path='RecipeReviewCard' element={<RecipeReviewCard/>}/>
-      <Route path='Dummy' element={<Dummy/>}/>
+      <Route path='Products' element={<Products/>}/>
     
       
       
