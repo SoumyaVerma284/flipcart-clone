@@ -64,6 +64,7 @@ export default function Dummy() {
         
 
     <Card sx={{ maxWidth: 345 }}>
+    
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -75,9 +76,11 @@ export default function Dummy() {
             <MoreVertIcon />
           </IconButton>
         }
-        title={val.title}
+        
+        title={val.title} 
         
       />
+      
       <CardMedia
         component="img"
         height="194"
@@ -100,8 +103,8 @@ export default function Dummy() {
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
-          <a href={`/product/${val.id}`}>View</a><br></br>
         </IconButton>
+        <a href={`/product/${val.id}`}>View</a><br></br>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
