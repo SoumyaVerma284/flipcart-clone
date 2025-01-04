@@ -41,7 +41,7 @@ const ExpandMore = styled((props) => {
   ],
 }));
 
-export default function Dummy() {
+export default function Products() {
     const [records,setRecords]=useState([])
 
     useEffect(()=>{
