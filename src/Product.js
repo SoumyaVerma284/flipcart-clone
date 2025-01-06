@@ -11,8 +11,8 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Drawer from "./Drawer1";
-import TemporaryDrawer from "./Drawer";
+import ResponsiveAppBar from "./Component1";
+import TemporaryDrawer from "./Drawer1";
 
 
 
@@ -30,7 +30,8 @@ function Product(){
   },[])
 
     return <>
-    <TemporaryDrawer/>
+     <ResponsiveAppBar/>
+     <TemporaryDrawer/>
     <Container>
         <>Product page {id} </>
         <Grid2 container spacing={2}>

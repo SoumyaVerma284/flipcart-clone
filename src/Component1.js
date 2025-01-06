@@ -12,8 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Pricing', 'ContactUs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -35,7 +34,8 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
-  return (
+  return <>
+    
     <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -154,6 +154,6 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+    </>
 }
 export default ResponsiveAppBar;
