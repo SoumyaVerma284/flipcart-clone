@@ -32,7 +32,7 @@ function Product(){
     return <>
   
     <Container>
-      <TemporaryDrawer/>
+    <TemporaryDrawer/>
         <>Product page {id} </>
         <Grid2 container spacing={2}>
           <Grid2 size={{ xs: 6, md: 4 }}>
