@@ -184,6 +184,7 @@ export default function SignIn(props) {
               fullWidth
               variant="contained"
               onClick={validateInputs}
+              href={'Products'}
             >
               Sign in
             </Button>
