@@ -40,8 +40,8 @@ function Product(){
            <b>Brand</b>:{data.brand}<br></br><br></br>
            <b>Price</b>:${data.price}<br></br><br></br>
            <b>Return Policy</b>:{data.returnPolicy}<br></br><br></br>
-           <Button variant="contained">Buy Now</Button>
-           <Button variant="contained">Add to Cart</Button>
+           <Button variant="contained" style={{marginRight:'10px'}} >Buy Now</Button>
+           <Button variant="contained" >Add to Cart</Button>
           </Grid2>
           <Grid2 size={{xs:12,md:6}}>
           <b>Reviews</b> <br></br>
@@ -54,7 +54,7 @@ function Product(){
             data.reviews.map((val)=>{
               
                return <Grid2 item size={ {xs:12, md: 3} } >
-                    <Card sx={{ minWidth: 275 ,backgroundColor:"pink"}}>
+                    <Card sx={{ minWidth: 275 ,backgroundColor:"pink",margin:"10px"}}>
                         <CardContent>
                             <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
                             {val.rating}
