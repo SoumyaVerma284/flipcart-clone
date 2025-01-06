@@ -81,6 +81,7 @@ export default function Products() {
         
       />
       
+      
       <CardMedia
         component="img"
         height="194"
@@ -133,6 +134,7 @@ export default function Products() {
           </Typography>
         </CardContent>
       </Collapse>
+      
     </Card>
     </Grid2>
 })}
