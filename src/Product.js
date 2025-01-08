@@ -13,7 +13,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import ResponsiveAppBar from "./Component1";
 import TemporaryDrawer from "./Drawer1";
-
+import StoreIcon from '@mui/icons-material/Store';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 function Product(){
@@ -44,8 +45,8 @@ function Product(){
            <b>Brand</b>:{data.brand}<br></br><br></br>
            <b>Price</b>:${data.price}<br></br><br></br>
            <b>Return Policy</b>:{data.returnPolicy}<br></br><br></br>
-           <Button variant="contained" style={{marginRight:'10px'}} >Buy Now</Button>
-           <Button variant="contained" >Add to Cart</Button>
+           <Button variant="contained" style={{marginRight:'10px'}} startIcon={<StoreIcon/>}>Buy Now</Button>
+           <Button variant="contained" startIcon={<ShoppingCartIcon/>}>Add to Cart</Button>
           </Grid2>
           <Grid2 size={{xs:12,md:6}}>
           <b>Reviews</b> <br></br>
