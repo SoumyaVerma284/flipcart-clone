@@ -17,7 +17,7 @@ const pages = ['Products', 'Pricing', 'ContactUs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -124,7 +124,7 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-          <ShoppingCartIcon/>
+          <ShoppingCartIcon/>{props.productCount}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

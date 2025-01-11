@@ -17,6 +17,7 @@ import BasicTable from './BasicTable';
 import Product from './Product';
 import RecipeReviewCard from './RecipeReviewCard';
 import Products from './Products';
+import MiniDrawer from './MiniDrawer';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Route path='Product/:id' element={<Product/>}/>
       <Route path='RecipeReviewCard' element={<RecipeReviewCard/>}/>
       <Route path='Products' element={<Products/>}/>
+      <Route path='MiniDrawer' element={<MiniDrawer/>}/>
     
       
       

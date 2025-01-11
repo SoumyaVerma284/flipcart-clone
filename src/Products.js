@@ -17,6 +17,9 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState, useEffect } from "react";
 import { Container,Grid2 } from '@mui/material';
 import axios from "axios";
+import ResponsiveAppBar from "./Component1";
+import TemporaryDrawer from "./Drawer1";
+import MiniDrawer from './MiniDrawer';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -50,6 +53,11 @@ export default function Products() {
       .catch(err=>console.log(err))
   
     },[])
+    const[productCount,setProductCount]=useState(0)
+      function addToCart(){
+        console.log("I am in add to cart");
+        setProductCount(productCount+1)
+      }
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -57,6 +65,9 @@ export default function Products() {
   };
 
   return <>
+   <ResponsiveAppBar productCount={productCount}/>
+  <TemporaryDrawer/> 
+
   <Container sx={{margin:10}}>
     <Grid2 spacing={10}container>
         { records&& records.map((val,index)=>{
