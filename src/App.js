@@ -25,8 +25,8 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-    {/* <Route path='/' element={<Signin1/>}/> */}
-      <Route path='/' element={<SignIn/>}/>
+    <Route path='/' element={<Signin1/>}/>
+      {/* <Route path='/' element={<SignIn/>}/> */}
       <Route path='Registration' element={<Registration/>}/>
       <Route path='Registration1' element={<Registration1/>}/>
       <Route path='Addproduct' element={<Addproduct/>}/>
