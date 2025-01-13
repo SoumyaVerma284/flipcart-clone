@@ -118,14 +118,10 @@ export default function SignIn(props) {
       return false;
     }
 
-    if(email=="a@a.com" && password=="123456"){
-        console.log("Login successfully");
-        navigate("/Products");
-    }else{
-        console.log("not login");
-    }
+    
 
     return isValid;
+    
   };
 
   return (
