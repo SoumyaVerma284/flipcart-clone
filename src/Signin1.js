@@ -10,6 +10,8 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { Card} from '@mui/material';
 import { Container } from '@mui/material';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export default function Signin1() {
 
@@ -17,13 +19,55 @@ export default function Signin1() {
    const [password, setPassword] = useState();
    const [result1, setResult1] = useState();
    const [result2, setResult2] = useState();
+   const navigate = useNavigate();
 
    function SubmitData(){
    
-    setResult1((email));
-    setResult2((password));
-    console.log("email : ",result1);    
-    console.log("pass : ",result2);
+
+    console.log("email : ",email);    
+    console.log("pass : ",password);
+
+    // validation
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      console.log('Please enter a valid email address.');
+      return false;
+    } else {
+      
+    }
+
+    if (!password || password.length < 6) {
+      console.log('Password must be at least 6 characters long.');
+      return false;
+
+    } else {
+     
+    }
+
+    /*
+    // API CALL
+    axios.post("https://jsonplaceholder.typicode.com/posts", {email, password}, { headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    }} )
+    .then((response) => {
+
+      //check response
+      if(response.status == "201"){
+        console.log("Login successfully");
+        navigate("/products");
+      }else{
+        console.log("Not Login successfully");
+
+      }
+    })
+    .catch((error)=>{ console.log(error)})
+  */
+
+    if(email== "a@a.com" && password == "123456"){
+      console.log("Login successfully");
+      navigate("/products");
+    }else{
+      console.log("Not Login successfully");
+    }
     
    }
 
@@ -80,7 +124,7 @@ export default function Signin1() {
             />
             
             <Button type="button" name="submit" value="submit" variant="contained"   
-              onChange={(e)=>{SubmitData()}}
+              onClick={SubmitData}
             >
               Sign in
             </Button>

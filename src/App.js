@@ -19,14 +19,16 @@ import RecipeReviewCard from './RecipeReviewCard';
 import Products from './Products';
 import MiniDrawer from './MiniDrawer';
 import Signin1 from './Signin1';
+import Login1 from './Login1';
 
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
-    <Route path='/' element={<Signin1/>}/>
-      {/* <Route path='/' element={<SignIn/>}/> */}
+    <Route path='Signin1' element={<Signin1/>}/>
+      <Route path='/' element={<SignIn/>}/>
+      <Route path='Login1' element={<Login1/>}/>
       <Route path='Registration' element={<Registration/>}/>
       <Route path='Registration1' element={<Registration1/>}/>
       <Route path='Addproduct' element={<Addproduct/>}/>
