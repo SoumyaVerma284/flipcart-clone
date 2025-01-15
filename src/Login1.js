@@ -105,7 +105,7 @@ export default function SignIn(props) {
     } else {
       setEmailError(false);
       setEmailErrorMessage('');
-      return false;
+      
     }
 
     if (!password || password.length<6) {
@@ -115,10 +115,10 @@ export default function SignIn(props) {
     } else {
       setPasswordError(false);
       setPasswordErrorMessage('');
-      return false;
+    
     }
 
-    if(email== "a@a.com" && password == "123456"){
+    if(email== "soumya@gmail.com" && password == "123456"){
       console.log("Login successfully");
       navigate("/Products");
     }else{
