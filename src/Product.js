@@ -21,7 +21,7 @@ import StarRateIcon from '@mui/icons-material/StarRate';
 import MiniDrawer from "./MiniDrawer";
 
 function Product(){
-    
+  let arr=[{Title:"Mascara Lash Princess",quantity:"2",amount:"$12"},{Title:"Foundation",quantity:"3",amount:"$16"}]
 
     let { id } = useParams();
     const [data,setData]=useState([])
@@ -46,10 +46,10 @@ function Product(){
     <Container>
         <>Product page {id} </>
         <Grid2 container spacing={2}>
-          <Grid2 size={{ xs: 6, md: 4}}>
+          <Grid2 size={{ xs: 6, md: 3}}>
            <img src={data.thumbnail} alt="" height={250} />
           </Grid2>
-          <Grid2 size={{ xs: 6, md: 8}}>
+          <Grid2 size={{ xs: 6, md: 5}}>
            <b>Title</b>:{data.title}<br></br><br></br>
            <b>Description</b>:{data.description}<br></br><br></br>
            <b>Brand</b>:{data.brand}<br></br><br></br>
@@ -58,6 +58,39 @@ function Product(){
            <Button variant="contained" style={{marginRight:'10px'}} startIcon={<StoreIcon/>}>Buy Now</Button>
            <Button variant="contained" onClick={(event)=>{addToCart();}} startIcon={<ShoppingCartIcon/>}>Add to Cart</Button>
           </Grid2>
+          
+          <Grid2 size={{ xs: 6, md: 4 }}>
+        {arr.map((val, index) => {
+ return<Grid2 item size={{xs:6,md:4}}>
+
+          <Card sx={{ minWidth: 275, backgroundColor: "PaleGoldenRod" , margin: "10px"}} >
+            <CardContent>
+              <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }} style={{ color: "black" }}>
+                <b>{val.Title}</b>
+              </Typography>
+
+              <Typography sx={{ color: 'text.secondary', mb: 1.5 }} style={{ color: "black" }}>{val.quantity}</Typography>
+              <Typography variant="body2" style={{ color: "black" }}>
+                {val.amount}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              {/* <Button size="small">Sunny Day {val.name}</Button> */}
+              {/* <LightModeIcon style={{color:"orange"}} />
+           <AirIcon style={{color:"blue"}}/>  */}
+
+            </CardActions>
+          </Card>
+          
+          </Grid2>
+        }
+        )}
+          <span id="bu"> Total: </span><br/><br/>
+          <span id="bu"><Button variant="contained">CheckOut</Button></span>
+
+      {/* </Grid2> */}
+     
+      </Grid2>
           
           <Grid2 size={{xs:12,md:6}}>
           <b>Reviews</b> <br></br>
