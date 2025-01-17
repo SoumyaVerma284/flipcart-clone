@@ -19,8 +19,12 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import ResponsiveAppBar from "./Component1";
+import Products from "./Products"
+import { useState } from "react";
+import Layout from './Layout';
 
 const drawerWidth = 240;
+
 
 
 const openedMixin = (theme) => ({
@@ -102,6 +106,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
+  const[productCount,setProductCount]=useState(0)
+  function addToCart(){
+    console.log("I am in add to cart");
+    setProductCount(productCount+1)
+  }
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -134,7 +143,8 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-          <ResponsiveAppBar/>
+            
+          <ResponsiveAppBar productCount={productCount}/>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -252,7 +262,7 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography sx={{ marginBottom: 2 }}>
-          
+      
         </Typography>
         <Typography sx={{ marginBottom: 2 }}>
           
