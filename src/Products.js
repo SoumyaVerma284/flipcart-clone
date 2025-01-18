@@ -65,8 +65,6 @@ export default function Products() {
   };
 
   return <>
-   <ResponsiveAppBar productCount={productCount}/>
-  <TemporaryDrawer/> 
 
   <Container sx={{margin:10}}>
     <Grid2 spacing={10}container>
@@ -116,7 +114,7 @@ export default function Products() {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <a href={`/product/${val.id}`}>View</a><br></br>
+        <a href={`/products/product/${val.id}`}>View</a><br></br>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

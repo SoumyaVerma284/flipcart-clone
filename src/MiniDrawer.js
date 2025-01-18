@@ -22,6 +22,7 @@ import ResponsiveAppBar from "./Component1";
 import Products from "./Products"
 import { useState } from "react";
 import Layout from './Layout';
+import { Outlet } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -144,7 +145,7 @@ export default function MiniDrawer() {
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             
-          <ResponsiveAppBar productCount={productCount}/>
+          <ResponsiveAppBar productCount={localStorage.getItem("pc")}/>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -261,12 +262,7 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography sx={{ marginBottom: 2 }}>
-      
-        </Typography>
-        <Typography sx={{ marginBottom: 2 }}>
-          
-        </Typography>
+        <Outlet />
       </Box>
     </Box>
     </>
