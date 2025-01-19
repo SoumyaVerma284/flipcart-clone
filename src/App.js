@@ -34,10 +34,8 @@ function App() {
       <Route path='products' element={<MiniDrawer/>}>
         <Route path='' element={<Products/>}/>
         <Route path='product/:id' element={<Product/>}/>
-
-
       </Route>
-
+     
       <Route path='/' element={<Login1/>}/>
       <Route path='Registration' element={<Registration/>}/>
       <Route path='Registration1' element={<Registration1/>}/>
