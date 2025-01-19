@@ -30,7 +30,12 @@ function App() {
     {/* <Route path='Signin1' element={<Signin1/>}/>
       <Route path='/' element={<SignIn/>}/> */}
       {/* <Route path='admin' element={<Layout/>}/> */}
-      
+
+      <Route path='products' element={<MiniDrawer/>}>
+        <Route path='' element={<Products/>}/>
+        <Route path='product/:id' element={<Product/>}/>
+      </Route>
+     
       <Route path='/' element={<Login1/>}/>
       <Route path='Registration' element={<Registration/>}/>
       <Route path='Registration1' element={<Registration1/>}/>
@@ -39,9 +44,7 @@ function App() {
       <Route path='ContactUs' element={<ContactUs/>}/>
       <Route path='Getpost' element={<Getpost/>}/>
       <Route path='BasicTable' element={<BasicTable/>}/>
-      <Route path='Product/:id' element={<Product/>}/>
       <Route path='RecipeReviewCard' element={<RecipeReviewCard/>}/>
-      <Route path='Products' element={<Products/>}/>
       <Route path='MiniDrawer' element={<MiniDrawer/>}/>
     
       

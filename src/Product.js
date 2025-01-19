@@ -35,14 +35,15 @@ function Product(){
   const[productCount,setProductCount]=useState(0)
   function addToCart(){
     console.log("I am in add to cart");
+    if(!localStorage.getItem("pc")){
+      localStorage.setItem('pc', 0);
+    }
+    localStorage.setItem('pc', parseInt(localStorage.getItem("pc"))+1)
     setProductCount(productCount+1)
   }
 
     return <>
-      <ResponsiveAppBar productCount={productCount}/>
-     <TemporaryDrawer/> 
-     
-    
+
     <Container>
         <>Product page {id} </>
         <Grid2 container spacing={2}>
