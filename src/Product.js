@@ -62,7 +62,7 @@ function Product(){
           <Grid2 Container style={{backgroundColor:"LightGrey"}}>
           <Grid2 size={{ xs: 6, md: 4 }}>
         {arr.map((val, index) => {
- return<Grid2 item size={{xs:6,md:4}}>
+        return<Grid2 item size={{xs:6,md:4}}>
 
           <Card sx={{ minWidth: 275, backgroundColor: "PaleGoldenRod" , margin: "10px"}} >
             <CardContent>
