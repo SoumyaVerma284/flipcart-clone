@@ -59,7 +59,7 @@ function Product(){
            <Button variant="contained" style={{marginRight:'10px'}} startIcon={<StoreIcon/>}>Buy Now</Button>
            <Button variant="contained" onClick={(event)=>{addToCart();}} startIcon={<ShoppingCartIcon/>}>Add to Cart</Button>
           </Grid2>
-          
+          <Grid2 Container style={{backgroundColor:"LightGrey"}}>
           <Grid2 size={{ xs: 6, md: 4 }}>
         {arr.map((val, index) => {
  return<Grid2 item size={{xs:6,md:4}}>
@@ -91,6 +91,7 @@ function Product(){
 
       {/* </Grid2> */}
      
+      </Grid2>
       </Grid2>
           
           <Grid2 size={{xs:12,md:6}}>
