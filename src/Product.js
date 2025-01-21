@@ -32,16 +32,20 @@ function Product(){
     .catch(err=>console.log(err))
 
   },[])
+  // let arr3 = [];
+  // let obj ={Title:"name"};
+  // const[item,setItem]=useState(0)
   const[productCount,setProductCount]=useState(0)
   function addToCart(){
     console.log("I am in add to cart");
     if(!localStorage.getItem("pc")){
       localStorage.setItem('pc', 0);
+      // localStorage.setItem('item', obj.data.title);
     }
     localStorage.setItem('pc', parseInt(localStorage.getItem("pc"))+1)
     setProductCount(productCount+1)
   }
-
+  
     return <>
 
     <Container>
