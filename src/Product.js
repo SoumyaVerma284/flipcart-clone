@@ -32,15 +32,15 @@ function Product(){
     .catch(err=>console.log(err))
 
   },[])
-  // let arr3 = [];
-  // let obj ={Title:"name"};
-  // const[item,setItem]=useState(0)
+  let arr1 = [];
+  let obj ={Title:data.title};
+  const[item,setItem]=useState(0)
   const[productCount,setProductCount]=useState(0)
   function addToCart(){
     console.log("I am in add to cart");
     if(!localStorage.getItem("pc")){
       localStorage.setItem('pc', 0);
-      // localStorage.setItem('item', obj.data.title);
+      localStorage.setItem('item', obj.Title);
     }
     localStorage.setItem('pc', parseInt(localStorage.getItem("pc"))+1)
     setProductCount(productCount+1)
@@ -61,7 +61,7 @@ function Product(){
            <b>Price</b>:${data.price}<br></br><br></br>
            <b>Return Policy</b>:{data.returnPolicy}<br></br><br></br>
            <Button variant="contained" style={{marginRight:'10px'}} startIcon={<StoreIcon/>}>Buy Now</Button>
-           <Button variant="contained" onClick={(event)=>{addToCart();}} startIcon={<ShoppingCartIcon/>}>Add to Cart</Button>
+           <Button variant="contained" onClick={(event)=>{addToCart({obj});}} startIcon={<ShoppingCartIcon/>}>Add to Cart</Button>
           </Grid2>
           <Grid2 Container style={{backgroundColor:"LightGrey"}}>
           <Grid2 size={{ xs: 6, md: 4 }}>
