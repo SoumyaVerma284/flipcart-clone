@@ -15,11 +15,14 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState, useEffect } from "react";
-import { Container,Grid2 } from '@mui/material';
+import { Button, Container,Grid2 } from '@mui/material';
 import axios from "axios";
 import ResponsiveAppBar from "./Component1";
 import TemporaryDrawer from "./Drawer1";
 import MiniDrawer from './MiniDrawer';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+import { ProductCountContext } from './context';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -45,6 +48,9 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function Products() {
+
+  let props = React.useContext(ProductCountContext)
+
     const [records,setRecords]=useState([])
 
     useEffect(()=>{
@@ -67,7 +73,43 @@ export default function Products() {
   return <>
 
   <Container sx={{margin:10}}>
-    <Grid2 spacing={10}container>
+
+<Grid2 Container style={{backgroundColor:"LightGrey"}}>
+          <Grid2 size={{ xs: 6, md: 4 }} style={{"padding": "20px"}}>
+        {props.arr.map((val, index) => {
+        return<Grid2 item size={{xs:6,md:4}}>
+
+          <Card sx={{ minWidth: 275, backgroundColor: "PaleGoldenRod" , margin: "10px"}} >
+            <CardContent>
+              <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }} style={{ color: "black" }}>
+                <b>{val.title}</b>
+              </Typography>
+
+              <Typography sx={{ color: 'text.secondary', mb: 1.5 }} style={{ color: "black" }}>{val.quantity}</Typography>
+              <Typography variant="body2" style={{ color: "black" }}>
+                {val.price}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              {/* <Button size="small">Sunny Day {val.name}</Button> */}
+              {/* <LightModeIcon style={{color:"orange"}} />
+           <AirIcon style={{color:"blue"}}/>  */}
+
+            </CardActions>
+          </Card>
+          
+          </Grid2>
+        }
+        )}
+          <span id="bu"> Total: </span><br/><br/>
+          <span id="bu"><Button variant="contained">CheckOut</Button></span>
+
+      {/* </Grid2> */}
+     
+      </Grid2>
+      </Grid2>
+
+    <Grid2 spacing={10} container>
         { records&& records.map((val,index)=>{
             return <Grid2 item size={{xs:6,md:4}}>
         
@@ -115,6 +157,14 @@ export default function Products() {
           <ShareIcon />
         </IconButton>
         <a href={`/products/product/${val.id}`}>View</a><br></br>
+
+        <Button variant="contained" onClick={(event)=>{
+            
+            props.addToCart(val);
+          
+          }} startIcon={<ShoppingCartIcon/>}></Button>
+
+
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -145,8 +195,12 @@ export default function Products() {
       </Collapse>
       
     </Card>
+
+    
     </Grid2>
 })}
+
+
     </Grid2>
     </Container>
     </>

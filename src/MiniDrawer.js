@@ -23,6 +23,7 @@ import Products from "./Products"
 import { useState } from "react";
 import Layout from './Layout';
 import { Outlet } from 'react-router-dom';
+import { ProductCountContext } from './context';
 
 const drawerWidth = 240;
 
@@ -107,11 +108,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
-  const[productCount,setProductCount]=useState(0)
-  function addToCart(){
-    console.log("I am in add to cart");
-    setProductCount(productCount+1)
-  }
+
+  let obj = React.useContext(ProductCountContext);
+
+  console.log("productCount", obj);
+
+
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -145,7 +148,7 @@ export default function MiniDrawer() {
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             
-          <ResponsiveAppBar productCount={localStorage.getItem("pc")}/>
+          <ResponsiveAppBar productCount={obj.arr.length}/>
           </Typography>
         </Toolbar>
       </AppBar>
