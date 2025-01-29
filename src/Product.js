@@ -55,10 +55,10 @@ function Product(){
     <Container>
         <>Product page {id} </>
         <Grid2 container spacing={2}>
-          <Grid2 size={{ xs: 6, md: 3}}>
+          <Grid2 size={{ xs: 6, md: 4}}>
            <img src={data.thumbnail} alt="" height={250} />
           </Grid2>
-          <Grid2 size={{ xs: 6, md: 5}}>
+          <Grid2 size={{ xs: 6, md: 8}}>
            <b>Title</b>:{data.title}<br></br><br></br>
            <b>Description</b>:{data.description}<br></br><br></br>
            <b>Brand</b>:{data.brand}<br></br><br></br>
