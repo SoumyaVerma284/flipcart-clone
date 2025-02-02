@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState, useEffect } from "react";
 import { Button, Container } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import Grid2 from '@mui/material/Grid2';
 
 import axios from "axios";
 import ResponsiveAppBar from "./Component1";
@@ -84,10 +84,10 @@ export default function Products() {
 
 
   return <>
-      <Grid container spacing={2}>
-        <Grid container size={9}>
+      <Grid2 container spacing={2}>
+        <Grid2 container size={9}>
         { records&& records.map((val,index)=>{
-            return <Grid item size={4}>
+            return <Grid2 item size={4}>
         
 
                   <Card sx={{ maxWidth: 345 }}>
@@ -173,13 +173,13 @@ export default function Products() {
                   </Card>
 
     
-    </Grid>
+    </Grid2>
 })}
-        </Grid>
-        <Grid size={3}>
+        </Grid2>
+        <Grid2 size={3}>
         {props.arr.map((val, index) => {
         
-        return<Grid item size={{xs:6,md:4}}>
+        return<Grid2 item size={{xs:6,md:4}}>
 
           <Card sx={{ minWidth: 275, backgroundColor: "PaleGoldenRod" , margin: "10px"}} >
             <CardContent>
@@ -198,13 +198,13 @@ export default function Products() {
             </CardActions>
           </Card>
           
-          </Grid>
+          </Grid2>
         }
         )}
         <span id="bu"> Total:<strong>${totalPrice}</strong> </span><br/><br/>
           <span id="bu"><Button variant="contained">CheckOut</Button></span>
-        </Grid>
+        </Grid2>
 
-    </Grid>
+    </Grid2>
     </>
 }
