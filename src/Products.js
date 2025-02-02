@@ -193,7 +193,7 @@ export default function Products() {
               </Typography>
             </CardContent>
             <CardActions>
-            <Button variant="contained" style={{marginRight:'10px'}} onClick={()=>{props.deleteItem(val.id);}}><DeleteIcon/></Button> 
+            <Button variant="contained" size="small" style={{marginRight:'10px',backgroundColor:'red'}} onClick={()=>{props.deleteItem(val.id);}}><DeleteIcon/></Button> 
 
             </CardActions>
           </Card>
