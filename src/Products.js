@@ -15,7 +15,9 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState, useEffect } from "react";
-import { Button, Container,Grid2 } from '@mui/material';
+import { Button, Container } from '@mui/material';
+import Grid from '@mui/material/Grid2';
+
 import axios from "axios";
 import ResponsiveAppBar from "./Component1";
 import TemporaryDrawer from "./Drawer1";
@@ -78,15 +80,106 @@ export default function Products() {
   };
   
   
+
+
+
   return <>
+      <Grid container spacing={2}>
+        <Grid container size={9}>
+        { records&& records.map((val,index)=>{
+            return <Grid item size={4}>
+        
 
-  <Container sx={{margin:10}}>
+                  <Card sx={{ maxWidth: 345 }}>
+                  
+                    <CardHeader
+                      avatar={
+                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                          {val.id}
+                        </Avatar>
+                      }
+                      action={
+                        <IconButton aria-label="settings">
+                          <MoreVertIcon />
+                        </IconButton>
+                      }
+                      
+                    title={val.title} 
+                      
+                    />
+                    
+                    
+                    <CardMedia
+                      component="img"
+                      height="194"
+                      image={val.images[0]}
+                      alt="Paella dish"
+                    />
+                    <CardContent>
+                      <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                        
+                        
+                          {val.description}<br></br>
+                          ${val.price}<br></br>
+                          
+                        
+                      </Typography>
+                    </CardContent>
+                    <CardActions disableSpacing>
+                      <IconButton aria-label="add to favorites">
+                        <FavoriteIcon />
+                      </IconButton>
+                      <IconButton aria-label="share">
+                        <ShareIcon />
+                      </IconButton>
+                      <a href={`/products/product/${val.id}`} style={{marginRight:'20px'}}>View</a><br></br>
 
-<Grid2 Container style={{backgroundColor:"LightGrey"}}>
-          <Grid2 size={{ xs: 6, md: 4 }} style={{"padding": "20px"}}>
+                      <Button variant="contained"  onClick={(event)=>{
+                          
+                          props.addToCart(val);
+                        
+                        }} startIcon={<ShoppingCartIcon/>}></Button>
+
+
+                      <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                      >
+                        <ExpandMoreIcon />
+                      </ExpandMore>
+                    </CardActions>
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                      <CardContent>
+                        <Typography sx={{ marginBottom: 2 }}>Method:</Typography>
+                        <Typography sx={{ marginBottom: 2 }}>
+                          
+                          
+                        </Typography>
+                        <Typography sx={{ marginBottom: 2 }}>
+                          
+                      
+                        </Typography>
+                        <Typography sx={{ marginBottom: 2 }}>
+                        
+                        </Typography>
+                        <Typography>
+                        
+                        </Typography>
+                      </CardContent>
+                    </Collapse>
+                    
+                  </Card>
+
+    
+    </Grid>
+})}
+        </Grid>
+        <Grid size={3}>
         {props.arr.map((val, index) => {
         
-        return<Grid2 item size={{xs:6,md:4}}>
+        return<Grid item size={{xs:6,md:4}}>
 
           <Card sx={{ minWidth: 275, backgroundColor: "PaleGoldenRod" , margin: "10px"}} >
             <CardContent>
@@ -100,115 +193,18 @@ export default function Products() {
               </Typography>
             </CardContent>
             <CardActions>
-            <Button variant="contained" style={{marginRight:'10px'}}><DeleteIcon/></Button> 
+            <Button variant="contained" style={{marginRight:'10px'}} onClick={()=>{props.deleteItem(val.id);}}><DeleteIcon/></Button> 
 
             </CardActions>
           </Card>
           
-          </Grid2>
+          </Grid>
         }
         )}
         <span id="bu"> Total:<strong>${totalPrice}</strong> </span><br/><br/>
           <span id="bu"><Button variant="contained">CheckOut</Button></span>
+        </Grid>
 
-      {/* </Grid2> */}
-     
-      </Grid2>
-      </Grid2>
-
-    <Grid2 spacing={10} container>
-        { records&& records.map((val,index)=>{
-            return <Grid2 item size={{xs:6,md:4}}>
-        
-
-    <Card sx={{ maxWidth: 345 }}>
-    
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {val.id}
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        
-      title={val.title} 
-        
-      />
-      
-      
-      <CardMedia
-        component="img"
-        height="194"
-        image={val.images[0]}
-        alt="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          
-          
-            {val.description}<br></br>
-             ${val.price}<br></br>
-            
-          
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <a href={`/products/product/${val.id}`} style={{marginRight:'20px'}}>View</a><br></br>
-
-        <Button variant="contained"  onClick={(event)=>{
-            
-            props.addToCart(val);
-          
-          }} startIcon={<ShoppingCartIcon/>}></Button>
-
-
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography sx={{ marginBottom: 2 }}>Method:</Typography>
-          <Typography sx={{ marginBottom: 2 }}>
-            
-            
-          </Typography>
-          <Typography sx={{ marginBottom: 2 }}>
-            
-        
-          </Typography>
-          <Typography sx={{ marginBottom: 2 }}>
-           
-          </Typography>
-          <Typography>
-           
-          </Typography>
-        </CardContent>
-      </Collapse>
-      
-    </Card>
-
-    
-    </Grid2>
-})}
-
-
-    </Grid2>
-    </Container>
+    </Grid>
     </>
 }

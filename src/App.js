@@ -37,11 +37,26 @@ function App() {
 
   }
 
+  function deleteItem(id){
+    console.log("i m in delte", id);
+
+    let newArr = arr.filter((val)=>{
+      if(val.id != id){
+        return val
+      }
+
+    })
+
+    setArr([...newArr]);
+
+    
+  }
+
 
   return (
     
   
-    <ProductCountContext.Provider value={ {addToCart: addToCart, arr: arr} } >
+    <ProductCountContext.Provider value={ {addToCart: addToCart, arr: arr, deleteItem: deleteItem} } >
   
 
       <BrowserRouter>
