@@ -16,6 +16,7 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 import { ReportGmailerrorred } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
+import { Alert } from '@mui/material';
 // import ForgotPassword from './ForgotPassword';
 // import { GoogleIcon, FacebookIcon, SitemarkIcon } from './CustomIcons';
 // import AppTheme from '../shared-theme/AppTheme';
@@ -122,6 +123,7 @@ export default function SignIn(props) {
       console.log("Login successfully");
       navigate("/Products");
     }else{
+      alert("Please check your email and password")
       console.log("Not Login ");
     }
 

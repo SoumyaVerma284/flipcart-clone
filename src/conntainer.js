@@ -21,104 +21,33 @@ import ResponsiveAppBar from "./Component1";
 import TemporaryDrawer from "./Drawer1";
 import MiniDrawer from './MiniDrawer';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import DeleteIcon from '@mui/icons-material/Delete';
-
-import { ProductCountContext } from './context';
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme }) => ({
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-  variants: [
-    {
-      props: ({ expand }) => !expand,
-      style: {
-        transform: 'rotate(0deg)',
-      },
-    },
-    {
-      props: ({ expand }) => !!expand,
-      style: {
-        transform: 'rotate(180deg)',
-      },
-    },
-  ],
-}));
-
-export default function Products() {
-
-  let props = React.useContext(ProductCountContext)
-  const{cart,removeFromCart}=React.useContext(ProductCountContext)
+function conntainer(){
+    let props = React.useContext(ProductCountContext)
 
     const [records,setRecords]=useState([])
-    
-    
+
     useEffect(()=>{
       axios.get("https://dummyjson.com/products")
       .then(res=>{setRecords(res.data.products)})
       .catch(err=>console.log(err))
   
     },[])
-    
     const[productCount,setProductCount]=useState(0)
       function addToCart(){
         console.log("I am in add to cart");
         setProductCount(productCount+1)
       }
-      const totalPrice=props.arr.reduce((acc,product)=>acc+product.price,0);
-      
-      
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  
-  
+
   return <>
-
-  <Container sx={{margin:10}}>
-
-<Grid2 Container style={{backgroundColor:"LightGrey"}}>
-          <Grid2 size={{ xs: 6, md: 4 }} style={{"padding": "20px"}}>
-        {props.arr.map((val, index) => {
-        
-        return<Grid2 item size={{xs:6,md:4}}>
-
-          <Card sx={{ minWidth: 275, backgroundColor: "PaleGoldenRod" , margin: "10px"}} >
-            <CardContent>
-              <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }} style={{ color: "black" }}>
-                <b>{val.title}</b>
-              </Typography>
-
-              <Typography sx={{ color: 'text.secondary', mb: 1.5 }} style={{ color: "black" }}>{val.quantity}</Typography>
-              <Typography variant="body2" style={{ color: "black" }}>
-                {val.price}
-              </Typography>
-            </CardContent>
-            <CardActions>
-            <Button variant="contained" style={{marginRight:'10px'}}><DeleteIcon/></Button> 
-
-            </CardActions>
-          </Card>
-          
-          </Grid2>
-        }
-        )}
-        <span id="bu"> Total:<strong>${totalPrice}</strong> </span><br/><br/>
-          <span id="bu"><Button variant="contained">CheckOut</Button></span>
-
-      {/* </Grid2> */}
-     
-      </Grid2>
-      </Grid2>
-
-    <Grid2 spacing={10} container>
+    <Container>
+        <Grid2 spacing={10} container>
         { records&& records.map((val,index)=>{
-            return <Grid2 item size={{xs:6,md:4}}>
+            return <Grid2 item size={{xs:6,md:9}}>
         
 
     <Card sx={{ maxWidth: 345 }}>
@@ -163,9 +92,9 @@ export default function Products() {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <a href={`/products/product/${val.id}`} style={{marginRight:'20px'}}>View</a><br></br>
+        <a href={`/products/product/${val.id}`}>View</a><br></br>
 
-        <Button variant="contained"  onClick={(event)=>{
+        <Button variant="contained" onClick={(event)=>{
             
             props.addToCart(val);
           
@@ -209,6 +138,41 @@ export default function Products() {
 
 
     </Grid2>
+    <Grid2 Container style={{backgroundColor:"LightGrey"}}>
+          <Grid2 size={{ xs: 6, md: 3 }} style={{"padding": "20px"}}>
+        {props.arr.map((val, index) => {
+        return<Grid2 item size={{xs:6,md:3}}>
+
+          <Card sx={{ minWidth: 275, backgroundColor: "PaleGoldenRod" , margin: "10px"}} >
+            <CardContent>
+              <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }} style={{ color: "black" }}>
+                <b>{val.title}</b>
+              </Typography>
+
+              <Typography sx={{ color: 'text.secondary', mb: 1.5 }} style={{ color: "black" }}>{val.quantity}</Typography>
+              <Typography variant="body2" style={{ color: "black" }}>
+                {val.price}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              
+
+            </CardActions>
+          </Card>
+          
+          </Grid2>
+        }
+        )}
+          <span id="bu"> Total: </span><br/><br/>
+          <span id="bu"><Button variant="contained">CheckOut</Button></span>
+
+      {/* </Grid2> */}
+     
+      </Grid2>
+      </Grid2>
+
     </Container>
     </>
+
 }
+export default conntainer;

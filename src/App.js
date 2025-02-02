@@ -39,7 +39,10 @@ function App() {
 
 
   return (
+    
+  
     <ProductCountContext.Provider value={ {addToCart: addToCart, arr: arr} } >
+  
 
       <BrowserRouter>
       <Routes>
