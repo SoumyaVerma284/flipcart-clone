@@ -132,7 +132,7 @@ export default function Products() {
                       <IconButton aria-label="share">
                         <ShareIcon />
                       </IconButton>
-                      <Button variant="contained" size="small" href={`/products/product/${val.id}`} style={{marginRight:'20px'}}>View</Button><br></br>
+                      <Button variant="contained" size="small" href={`/#/products/product/${val.id}`} style={{marginRight:'20px'}}>View</Button><br></br>
 
                       <Button variant="contained"  onClick={(event)=>{
                           

@@ -4,7 +4,7 @@ import ResponsiveAppBar from './Component1';
 import TemporaryDrawer from './Drawer';
 import{ useState }from'react';
 import { Button } from '@mui/material';
-import {BrowserRouter,Route,Routes}from'react-router-dom';
+import {HashRouter,Route,Routes}from'react-router-dom';
 import Login from'./Login';
 import Registration from './Registration';
 import Addproduct from './Addproduct';
@@ -59,17 +59,17 @@ function App() {
     <ProductCountContext.Provider value={ {addToCart: addToCart, arr: arr, deleteItem: deleteItem} } >
   
 
-      <BrowserRouter>
+      <HashRouter basename="/">
       <Routes>
       {/* <Route path='Signin1' element={<Signin1/>}/>
         <Route path='/' element={<SignIn/>}/> */}
         {/* <Route path='admin' element={<Layout/>}/> */}
 
           <Route path='products' element={<MiniDrawer/>}>
-            <Route path='' element={<Products/>}/>
+            <Route path='' element={<Products/>}/>            
             <Route path='product/:id' element={<Product/>}/>
           </Route>
-        <Route path='/' element={<Login1/>}/>
+                <Route path='/' element={<Login1/>}/>
         <Route path='Registration' element={<Registration/>}/>
         <Route path='Registration1' element={<Registration1/>}/>
         <Route path='Addproduct' element={<Addproduct/>}/>
@@ -83,7 +83,7 @@ function App() {
         
         
       </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ProductCountContext.Provider>
 
   );

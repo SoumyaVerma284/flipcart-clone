@@ -199,7 +199,7 @@ export default function SignIn(props) {
             />
              {/* <ForgotPassword open={open} handleClose={handleClose} /> */}
             <Button
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               onClick={validateInputs}

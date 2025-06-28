@@ -92,7 +92,7 @@ function conntainer(){
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <a href={`/products/product/${val.id}`}>View</a><br></br>
+        <a href={`/#/products/product/${val.id}`}>View</a><br></br>
 
         <Button variant="contained" onClick={(event)=>{
             
